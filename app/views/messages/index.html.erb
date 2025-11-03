@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, @count.positive? ? "#{@count} • Messages" : "Messages" %>
+<%= turbo_stream_from :messages %>
 
 <h1>Messages</h1>
 
@@ -11,3 +12,6 @@
 <ul id="messages">
   <%= render @messages %>
 </ul>
+
+<%# Uncomment to test turbo stream broadcasts %>
+<%# console %>
