@@ -1,0 +1,3 @@
+<li id="<%= dom_id message %>">
+  <%= message.title %> <%= button_to "Delete", message_path(message), method: :delete, data: {turbo_method: :delete} %>
+</li>

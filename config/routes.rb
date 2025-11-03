@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#show"
+  resources :messages, only: %w[create destroy]
+
+  root to: "messages#index"
 end
