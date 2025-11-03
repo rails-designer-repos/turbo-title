@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all.reverse
+    @count = Message.all.count
   end
 
   def create
@@ -10,6 +11,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        @count = Message.all.count
+
         format.turbo_stream
         format.html { redirect_to root_path, notice: "Message was successfully created." }
       else
@@ -21,6 +24,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy!
+    @count = Message.all.count
 
     respond_to do |format|
       format.turbo_stream
