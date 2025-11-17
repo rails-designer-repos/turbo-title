@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, @count.positive? ? "#{@count} • Messages" : "Messages" %>
+<% content_for :favicon, @count.positive? ? "./icon-unread.svg" : "./icon.svg" %>
 <%= turbo_stream_from :messages %>
 
 <h1>Messages</h1>
